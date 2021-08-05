@@ -6,7 +6,7 @@ public class TesteHibernate {
 	
 	@Test
 	public void testeHibernate() {
-		HibernateUtil.getEntityManager();
+		HibernateUtil.geEntityManager();
 	}
 
 }

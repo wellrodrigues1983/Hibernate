@@ -12,21 +12,24 @@ public class HibernateUtil {
 		init();
 	}
 	
-	private static void init() {
+	private static void init(){
 		
 		try {
-			if (factory == null) {
-				factory = Persistence.createEntityManagerFactory("mavem-hibernate");
-				
-			}
 			
-		} catch (Exception e) {
+			if (factory == null){
+				factory = Persistence.createEntityManagerFactory("mavem-hibernate");
+			}
+		}catch (Exception e) {
 			e.printStackTrace();
-		}		
-		
+		}
+	}
+	
+	public static EntityManager geEntityManager(){
+		return factory.createEntityManager(); /*Prove a parte de persistencia*/
+	}
+	
+	public static Object getPrimaryKey(Object entity){ // Retorna a primay key
+		return factory.getPersistenceUnitUtil().getIdentifier(entity);
 	}
 
-	public static EntityManager getEntityManager() {
-		return factory.createEntityManager(); //prove a parte de persistencia
-	}
 }

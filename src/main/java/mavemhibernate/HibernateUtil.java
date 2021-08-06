@@ -31,5 +31,6 @@ public class HibernateUtil {
 	public static Object getPrimaryKey(Object entity){ // Retorna a primay key
 		return factory.getPersistenceUnitUtil().getIdentifier(entity);
 	}
+	
 
 }

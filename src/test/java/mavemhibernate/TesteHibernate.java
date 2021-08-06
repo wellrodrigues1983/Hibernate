@@ -1,5 +1,7 @@
 package mavemhibernate;
 
+import java.util.List;
+
 import org.junit.Test;
 
 import dao.DaoGeneric;
@@ -52,13 +54,27 @@ public class TesteHibernate {
 //		
 //	}
 	
+//	@Test
+//	public void testeDelete(){
+//		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
+//		
+//		UsuarioPessoa pessoa = daoGeneric.pesquisar(3L , UsuarioPessoa.class);
+//		
+//		daoGeneric.deletarPorId(pessoa);
+//		
+//		
+//	}
+	
 	@Test
-	public void testeDelete(){
+	public void testeConsultar(){
 		DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
 		
-		UsuarioPessoa pessoa = daoGeneric.pesquisar(3L , UsuarioPessoa.class);
+		List<UsuarioPessoa> list = daoGeneric.listar(UsuarioPessoa.class);
 		
-		daoGeneric.deletarPorId(pessoa);
+		for (UsuarioPessoa usuarioPessoa : list) {
+			System.out.println(usuarioPessoa);
+			System.out.println("--------------------------------------------------");
+		}
 		
 		
 	}
